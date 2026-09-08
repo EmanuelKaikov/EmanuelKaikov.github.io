@@ -1,0 +1,106 @@
+/* PromIT Custom Stylesheet */
+
+:root {
+    --brand-dark: #050508;
+    --brand-gold: #d4af37;
+    --brand-gold-light: #fde047;
+    --brand-gray: #1a1a24;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--brand-dark);
+    color: #ffffff;
+    font-family: 'Heebo', sans-serif;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #050508;
+}
+::-webkit-scrollbar-thumb {
+    background: #2a2a38;
+    border-radius: 5px;
+    border: 2px solid #050508;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #d4af37;
+}
+
+/* Gold Gradient Text Utility */
+.gold-gradient {
+    background: linear-gradient(135deg, #fde047 0%, #d4af37 50%, #9a7b1c 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Background Gold Gradient */
+.bg-gold-gradient {
+    background: linear-gradient(135deg, #fde047 0%, #d4af37 50%, #9a7b1c 100%);
+}
+
+/* Glassmorphism Panel */
+.glass-panel {
+    background: rgba(26, 26, 36, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+/* Editorial Border */
+.editorial-border {
+    border-top: 2px solid #d4af37;
+    border-bottom: 2px solid #d4af37;
+}
+
+/* Shimmer Animation */
+@keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+}
+
+.animate-shimmer {
+    background: linear-gradient(90deg, rgba(212,175,55,0) 0%, rgba(212,175,55,0.3) 50%, rgba(212,175,55,0) 100%);
+    background-size: 200% 100%;
+    animation: shimmer 3s infinite;
+}
+
+/* Fade in Keyframe */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Print Specific Optimizations */
+@media print {
+    .no-print { 
+        display: none !important; 
+    }
+    body { 
+        background-color: #050508 !important; 
+        color: #ffffff !important;
+    }
+    .glass-panel {
+        background: #1a1a24 !important;
+        border: 1px solid #d4af37 !important;
+    }
+    .page-break { 
+        page-break-before: always; 
+        margin-top: 2rem;
+    }
+    header#mainHeader {
+        display: none !important;
+    }
+}
